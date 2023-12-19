@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ConstraintLayout</string>
+    <string name="exampleText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id neque turpis. Duis interdum non massa in dignissim. Fusce rhoncus ullamcorper orci vitae semper. In a nulla accumsan, convallis mauris sed, accumsan nulla. Phasellus lectus dui, interdum eget consectetur nec, convallis et lectus. Phasellus condimentum elit varius tellus porttitor suscipit. Mauris aliquam ante viverra purus tempus, sit amet condimentum velit fringilla. Aenean fermentum nunc eu quam molestie, vitae blandit leo vehicula. Duis massa diam, fermentum ut lacus at, convallis mollis velit. Integer tristique suscipit nibh, ac viverra eros venenatis eu. Duis condimentum ultrices purus quis egestas. Integer quis ex enim. Nunc consectetur sem at vehicula vestibulum. Aliquam maximus sem ac est ultricies malesuada. Donec a ipsum vestibulum nulla convallis dictum. Mauris posuere ut odio eget aliquet. Etiam nec vestibulum lectus. Proin a fermentum tellus. Morbi imperdiet, augue sed finibus vehicula, mauris elit vehicula neque, in bibendum dui lacus eu ex. Sed ornare enim lectus, et ornare est pellentesque facilisis. Suspendisse et ligula laoreet, ultrices diam ac, euismod justo.</string>
+    <string name="readMore">Read more</string>
+    <string name="writerName">Name of the news writer</string>
+    <string name="dateAndHour">MM/DD/YYYY - 00:00</string>
+    <string name="exampleTitle">Example headline of a news story</string>
+</resources>
