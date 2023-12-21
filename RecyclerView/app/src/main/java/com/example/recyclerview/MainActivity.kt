@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recyclerview.databinding.ActivityMainBinding
+import com.example.recyclerview.model.User
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,15 +18,23 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val users = mutableListOf<String>()
+        val users = getData()
 
-        repeat(100){
-            users.add("Nome completo de um usuário $it")
-        }
+        binding.rvUser.adapter = UserAdapter(users)
+    }
 
-        binding.rvUser.adapter = UserAdapter(users){
-            Toast.makeText(this, it, Toast.LENGTH_LONG).show()
+    private fun getData(): MutableList<User> {
+        val users = mutableListOf<User>()
+
+        repeat(100) {
+            users.add(
+                User(
+                    id = it.toLong(),
+                    name = "Nome",
+                    lastName = "Sobrenome"
+                )
+            )
         }
-        binding.rvUser.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
+        return users
     }
 }
