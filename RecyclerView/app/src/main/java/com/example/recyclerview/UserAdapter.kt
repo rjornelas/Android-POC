@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerview.databinding.ResItemUserBinding
 
 class UserAdapter(
-    private val users: List<String>
+    private val users: List<String>,
+    private val onClick: (String) -> Unit
 ) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
     inner class UserViewHolder(itemView: ResItemUserBinding) : RecyclerView.ViewHolder(itemView.root){
@@ -19,8 +20,11 @@ class UserAdapter(
         tvNameUser = itemView.tvNameUser
     }
 
-        fun bind(userName: String){
+        fun bind(userName: String, onClick: (String) -> Unit){
             tvNameUser.text = userName
+            itemView.rootView.setOnClickListener{
+                onClick(userName)
+            }
         }
 
     }
@@ -31,7 +35,7 @@ class UserAdapter(
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-        holder.bind(users[position])
+        holder.bind(users[position], onClick)
     }
 
     override fun getItemCount(): Int {

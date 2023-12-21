@@ -2,6 +2,7 @@ package com.example.recyclerview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.recyclerview.databinding.ActivityMainBinding
@@ -22,7 +23,9 @@ class MainActivity : AppCompatActivity() {
             users.add("Nome completo de um usuário $it")
         }
 
-        binding.rvUser.adapter = UserAdapter(users)
+        binding.rvUser.adapter = UserAdapter(users){
+            Toast.makeText(this, it, Toast.LENGTH_LONG).show()
+        }
         binding.rvUser.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
     }
 }
