@@ -11,7 +11,7 @@ import com.example.recyclerview.databinding.ResItemUserBinding
 import com.example.recyclerview.model.User
 
 class UserAdapter(
-    private val users: List<User>
+    private val users: MutableList<User>
 ) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
     private val userStateArray = SparseBooleanArray()
@@ -34,6 +34,11 @@ class UserAdapter(
             }
         }
 
+    }
+
+    fun addNewUser(user: User){
+        users.add(user)
+        notifyItemInserted(users.size - 1)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {

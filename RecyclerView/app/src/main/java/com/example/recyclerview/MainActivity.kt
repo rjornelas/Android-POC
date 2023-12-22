@@ -19,19 +19,29 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val users = getData()
+        val adapter = UserAdapter(users)
 
-        binding.rvUser.adapter = UserAdapter(users)
+        binding.rvUser.adapter = adapter
+        binding.fabSelectUsers.setOnClickListener{
+            adapter.addNewUser(
+                User(
+                    -1,
+                    "New",
+                    "User"
+                )
+            )
+        }
     }
 
     private fun getData(): MutableList<User> {
         val users = mutableListOf<User>()
 
-        repeat(100) {
+        repeat(5) {
             users.add(
                 User(
                     id = it.toLong(),
-                    name = "Nome",
-                    lastName = "Sobrenome"
+                    name = "Name",
+                    lastName = "Lastname"
                 )
             )
         }
