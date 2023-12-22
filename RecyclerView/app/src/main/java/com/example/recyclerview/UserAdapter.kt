@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.RadioButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerview.databinding.ResItemUserBinding
@@ -14,23 +15,25 @@ class UserAdapter(
     private val users: List<User>
 ) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
-    private val userStateArray = SparseBooleanArray()
+    private var selectedPosition : Int = -1
 
     inner class UserViewHolder(itemView: ResItemUserBinding) : RecyclerView.ViewHolder(itemView.root){
 
     private val tvNameUser: TextView
-    private val cbUser: CheckBox
+    private val rbUser: RadioButton
 
     init{
         tvNameUser = itemView.tvNameUser
-        cbUser = itemView.cbUser
+        rbUser = itemView.rbUser
     }
 
         fun bind(userName: String, position: Int){
             tvNameUser.text = userName
-            cbUser.isChecked = userStateArray[position, false]
-            cbUser.setOnClickListener() {
-                userStateArray.put(position, cbUser.isChecked)
+            rbUser.isChecked = (position == selectedPosition)
+            rbUser.setOnClickListener() {
+                val oldSelectedPosition = selectedPosition
+                selectedPosition = position
+                notifyItemChanged(oldSelectedPosition)
             }
         }
 
