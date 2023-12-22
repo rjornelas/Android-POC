@@ -1,10 +1,7 @@
 package com.example.recyclerview
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
 import com.example.recyclerview.databinding.ActivityMainBinding
 import com.example.recyclerview.model.User
 
@@ -19,17 +16,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val users = getData()
+        val newUsers = getData()
         val adapter = UserAdapter(users)
 
         binding.rvUser.adapter = adapter
         binding.fabSelectUsers.setOnClickListener{
-            adapter.addNewUser(
-                User(
-                    -1,
-                    "New",
-                    "User"
+            newUsers.add(
+                User(id = -1,
+                    name = "New",
+                    lastName = "User"
                 )
             )
+            adapter.setData(newUsers)
         }
     }
 
